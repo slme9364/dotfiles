@@ -79,3 +79,31 @@ alias g++='g++ -std=c++14 -pthread'
 alias mecab-c++='(){ g++ -std=c++14 $1 `mecab-config --cflags` `mecab-config --libs` }'
 alias cv-c++='(){g++ -std=c++14 -ggdb `pkg-config --cflags opencv` $1 `pkg-config --libs opencv`}'
 
+##zplug
+
+#When you don't have zplug, you install'
+if [ ! -e $HOME"/.zplug" ]; then
+  curl -sL zplug.sh/installer | zsh
+fi
+
+source ~/.zplug/init.zsh
+
+#Define plugins
+zplug 'zsh-users/zsh-autosuggestions'
+zplug 'zsh-users/zsh-completions'
+zplug 'junegunn/fzf-bin', as:command, from:gh-r, rename-to:fzf-bin
+zplug 'junegunn/fzf', as:command, use:bin/fzf-tmux
+zplug 'b4b4r07/enhancd', use:init.sh
+
+#If Not installed plugins exist, you installed there.
+if ! zplug check --verbose; then
+  printf 'Install? [y/N]: '
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+
+zplug load
+
+#Automatic start tmux
+[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
