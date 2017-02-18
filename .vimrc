@@ -51,7 +51,6 @@ call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('Shougo/neoinclude.vim')
-call dein#add('altercation/vim-colors-solarized')
 call dein#add('tomasr/molokai')
 call dein#add('Shougo/neocomplete.vim')
 call dein#add('thinca/vim-quickrun')
@@ -61,6 +60,9 @@ call dein#add('osyo-manga/vim-watchdogs')
 call dein#add('jceb/vim-hier')
 call dein#add('dannyob/quickfixstatus')
 call dein#add('fatih/vim-go')
+call dein#add('Konfekt/FastFold')
+call dein#add('rust-lang/rust.vim')
+call dein#add('racer-rust/vim-racer')
 " リビジョンとかブランチ指定する時はこんな感じに書く
 " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
@@ -76,8 +78,13 @@ endif
 "End dein Scripts-------------------------
 colorscheme molokai
 let g:molokai_original=1
-
-"-----------------------------------------
+"----------------------------------------
+let g:tex_fold_enabled=1
+let g:vimsyn_folding='af'
+let g:xml_syntax_folding = 1
+let g:php_folding = 1
+let g:perl_fold = 1
+"----------------------------------------
 "Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -137,6 +144,7 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
@@ -217,4 +225,11 @@ call watchdogs#setup(g:quickrun_config)
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
+"-------------------------------------------------------
+let g:ycm_semantic_triggers = {'haskell' : ['.']}
+"Rust----------------------------------------------------
+let g:rustfmt_autosave = 1
+let g:rustfmt_command = '$HOME/.cargo/bin/rustfmt'
 
+let g:racer_cmd = '$HOME/.cargo/bin/racer'
+let $RUST_SRC_PATH="$HOME/usr/src/rustc-1.13.0/src"

@@ -33,13 +33,11 @@ PROMPT="
 PROMPT2='[%n]> '
 SPROMPT="%{$fg[red]%}%{$suggest%}(*'~'%)? < もしかして %B%r%b %{$fg[red]%}かな? [そう!(y), 違う!(n),a,e]:${reset_color} "
 
-
 autoload -Uz select-word-style
 select-word-style default
 zstyle ':zle:*' word-chars " /=;@:{},|"
 zstyle ':zle:*' word-style unspecified
 
-#match
 autoload -Uz compinit
 compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -70,9 +68,13 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -p'
+alias sudo='sudo '
 alias -g L='| less'
 alias -g G='| grep'
 alias pbcopy='xsel --input --clipboard'
+alias g++='g++ -std=c++14 -pthread'
 alias mecab-c++='(){ g++ -std=c++14 $1 `mecab-config --cflags` `mecab-config --libs` }'
 alias cv-c++='(){g++ -std=c++14 -ggdb `pkg-config --cflags opencv` $1 `pkg-config --libs opencv`}'
 
+#tmux
+[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
