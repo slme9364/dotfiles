@@ -76,5 +76,3 @@ alias g++='g++ -std=c++14 -pthread'
 alias mecab-c++='(){ g++ -std=c++14 $1 `mecab-config --cflags` `mecab-config --libs` }'
 alias cv-c++='(){g++ -std=c++14 -ggdb `pkg-config --cflags opencv` $1 `pkg-config --libs opencv`}'
 
-#tmux
-[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
