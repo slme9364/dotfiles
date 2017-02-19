@@ -49,7 +49,7 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                    /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
-#Version_control_system_information
+#Version_controll_system_information
 autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
 zstyle ':vcs_info:*' formats '%F{green}(%s)-[%b]%f'
@@ -78,6 +78,7 @@ alias pbcopy='xsel --input --clipboard'
 alias g++='g++ -std=c++14 -pthread'
 alias mecab-c++='(){ g++ -std=c++14 $1 `mecab-config --cflags` `mecab-config --libs` }'
 alias cv-c++='(){g++ -std=c++14 -ggdb `pkg-config --cflags opencv` $1 `pkg-config --libs opencv`}'
+alias fuzzy-killer="ps axh -F | fzf | awk '{print \$2}' | xargs kill"
 
 ##zplug
 
