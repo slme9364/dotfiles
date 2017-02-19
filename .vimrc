@@ -160,6 +160,7 @@ let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
 "let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 "----------------------------------------------------------------
 
+
 let g:quickrun_config={}
 
 let s:config = {
@@ -212,6 +213,11 @@ let s:config = {
 \}
 
 let g:watchdogs_check_BufWritePost_enable = 1
+
+let g:watchdogs_check_BufWritePost_enables = {
+\           "rust" : 0
+\}
+
 let g:watchdogs_check_CursorHold_enable = 1
 
 
