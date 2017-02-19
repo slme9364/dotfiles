@@ -26,12 +26,12 @@ set wildmenu
 set cursorline
 set cursorcolumn
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
-    inoremap " ""<LEFT>
-    inoremap ' ''<LEFT>
-        set notitle
-        set nocompatible
-        filetype plugin indent off
-        set t_Co=256
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
+set notitle
+set nocompatible
+filetype plugin indent off
+set t_Co=256
 
 "----------------------------------------------------------------
 
