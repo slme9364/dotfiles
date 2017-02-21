@@ -83,6 +83,7 @@ alias fuzzy-killer="ps axh -F | fzf | awk '{print \$2}' | xargs kill"
 alias tmux-sb='tmux save-buffer - | pbcopy'
 alias tmux-lb='pbpaste | tmux load-buffer -'
 
+
 ##zplug
 
 #When you don't have zplug, you install'
@@ -111,3 +112,9 @@ zplug load
 
 #Automatic start tmux
 [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
+
+#method
+cl (){
+  cd
+  ls
+}
