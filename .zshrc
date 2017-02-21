@@ -81,6 +81,7 @@ alias mecab-c++='(){ g++ -std=c++14 $1 `mecab-config --cflags` `mecab-config --l
 alias cv-c++='(){g++ -std=c++14 -ggdb `pkg-config --cflags opencv` $1 `pkg-config --libs opencv`}'
 alias fuzzy-killer="ps axh -F | fzf | awk '{print \$2}' | xargs kill"
 alias tmux-sb='tmux save-buffer - | pbcopy'
+alias tmux-lb='pbpaste | tmux load-buffer -'
 
 ##zplug
 
