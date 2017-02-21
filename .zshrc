@@ -67,6 +67,7 @@ alias ls='ls -F --color=auto'
 alias la='ls -a'
 alias ll='ls -l'
 alias lal='ls -al'
+alias cl='cd && ls'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -114,7 +115,4 @@ zplug load
 [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
 
 #method
-cl (){
-  cd
-  ls
-}
+
