@@ -67,7 +67,6 @@ alias ls='ls -F --color=auto'
 alias la='ls -a'
 alias ll='ls -l'
 alias lal='ls -al'
-alias cl='cd && ls'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -85,6 +84,8 @@ alias tmux-sb='tmux save-buffer - | pbcopy'
 alias tmux-lb='pbpaste | tmux load-buffer -'
 alias pc='pbpaste > a.out && chmod +x a.out && ./a.out && rm -rf a.out'
 
+#method
+chpwd() { ls }
 
 ##zplug
 
