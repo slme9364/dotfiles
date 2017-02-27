@@ -82,7 +82,6 @@ alias cv-c++='(){g++ -std=c++14 -ggdb `pkg-config --cflags opencv` $1 `pkg-confi
 alias fuzzy-killer="ps axh -F | fzf | awk '{print \$2}' | xargs kill"
 alias tmux-sb='tmux save-buffer - | pbcopy'
 alias tmux-lb='pbpaste | tmux load-buffer -'
-alias pc='pbpaste > a.out && chmod +x a.out && ./a.out && rm -rf a.out'
 
 #method
 chpwd() { ls }
