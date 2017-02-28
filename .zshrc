@@ -86,6 +86,20 @@ alias tmux-lb='pbpaste | tmux load-buffer -'
 #method
 chpwd() { ls }
 
+zshaddhistory() {
+    local line=${1%%$'\n'}
+    local cmd=${line%% *}
+
+    #Only those that satisfy all of the following conditions are added to the history.
+    [[ ${#line} -ge 5
+        && ${cmd} != (l[sal]|lal)
+        && ${cmd} != (cd)
+        && ${cmd} != (man)
+        && ${cmd} != (exit)
+        && ${cmd} != (tmux-sb|tmux-lb)
+    ]]
+}
+
 ##zplug
 
 #When you don't have zplug, you install'
