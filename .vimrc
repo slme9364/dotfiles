@@ -1,39 +1,83 @@
+"clipboard setting
 set clipboard=autoselect
 set clipboard+=unnamed
 set clipboard=unnamedplus
+
+"mouse can use
 set mouse=a
+
+"print number
 set number
+
+"set title
 set title
+
 set whichwrap=b,s,h,l,<,>,[,]
 set ambiwidth=double
+
+"tab equals two space
 set tabstop=2
+
+"background color
 set background=dark
+
+"syntax
 syntax on
+
+"tab key -> space key
 set expandtab
+
+"if autoindent on, indent two space
 set shiftwidth=2
+
+"autoindent
 set cindent
+
+"print status line at second line
 set laststatus=2
+
+"show command
 set showcmd
+
+"print tab, trail, eol, etc...
 set list
 set listchars=tab:>.,trail:_,eol:↲,extends:>,precedes:<,nbsp:%
+
+"remove octal and only hex
 set nrformats-=octal
+
+"if open unsaved file, another file can open
 set hidden
+
+"history limit
 set history=50
+
+"if visual mode, not exist range can select
 set virtualedit=block
+
+"can move between the lines
 set whichwrap=b,s,[,],<,>
+
+"backspace can always use in vim
 set backspace=indent,eol,start
+
+"when vim open file, file name conpletion
 set wildmenu
+
+"stand out cursor
 set cursorline
 set cursorcolumn
+
+"inoremap settings
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
-set notitle
-set nocompatible
-filetype plugin indent off
-set t_Co=256
 
-"----------------------------------------------------------------
+"if title prtint 'Thanks for flying vim', notitle remove this message
+"set notitle
+
+"can use 256 color
+set t_Co=256
 
 "dein Scripts-----------------------------
 if &compatible
@@ -47,7 +91,7 @@ call dein#begin('$HOME/.vim/dein')
 " Let dein manage dein
 call dein#add('Shougo/dein.vim')
 
-" dein でインストールするプラグインは以下のように書く
+" add plugin
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('Shougo/neoinclude.vim')
@@ -63,14 +107,12 @@ call dein#add('fatih/vim-go')
 call dein#add('Konfekt/FastFold')
 call dein#add('rust-lang/rust.vim')
 call dein#add('racer-rust/vim-racer')
-" リビジョンとかブランチ指定する時はこんな感じに書く
-" call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
 call dein#end()
 
 filetype plugin indent on
 
-" インストールしてないプラグインを vim 起動時に自動的にインストールする設定
+"if not yet installed plagin exist, these install.
 if dein#check_install()
   call dein#install()
 endif
@@ -78,13 +120,15 @@ endif
 "End dein Scripts-------------------------
 colorscheme molokai
 let g:molokai_original=1
-"----------------------------------------
+
+"FastFold-----------------------------------
 let g:tex_fold_enabled=1
 let g:vimsyn_folding='af'
 let g:xml_syntax_folding = 1
 let g:php_folding = 1
 let g:perl_fold = 1
-"----------------------------------------
+
+"neocomplete---------------------------------
 "Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -126,9 +170,6 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
 " AutoComplPop like behavior.
 let g:neocomplete#enable_auto_select = 1
 
@@ -144,8 +185,8 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
 let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
-"----------------------------------------------------------------
 
+"watchdogs settings
 
 let g:quickrun_config={}
 
@@ -210,15 +251,13 @@ let g:watchdogs_check_CursorHold_enable = 1
 call extend(g:quickrun_config, s:config)
 unlet s:config
 
-" watchdogs.vim の設定を追加
 call watchdogs#setup(g:quickrun_config)
 
-"-------------------------------------------------------
+"golang--------------------------------------------------
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
-"-------------------------------------------------------
-let g:ycm_semantic_triggers = {'haskell' : ['.']}
+
 "Rust----------------------------------------------------
 let g:rustfmt_autosave = 1
 let g:rustfmt_command = '$HOME/.cargo/bin/rustfmt'
