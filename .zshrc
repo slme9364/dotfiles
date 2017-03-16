@@ -100,6 +100,11 @@ zshaddhistory() {
     ]]
 }
 
+#rustup install
+if [ ! -e $HOME"/.cargo" ]; then
+  curl https://sh.rustup.rs -sSf | sh
+fi
+
 ##zplug
 
 #When you don't have zplug, you install'
