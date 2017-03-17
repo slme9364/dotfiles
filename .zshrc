@@ -1,6 +1,7 @@
 #auto_color
 autoload -Uz colors
 colors
+
 #bindkey = vim
 bindkey -v
 
