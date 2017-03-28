@@ -103,7 +103,6 @@ call dein#add('osyo-manga/shabadou.vim')
 call dein#add('osyo-manga/vim-watchdogs')
 call dein#add('jceb/vim-hier')
 call dein#add('dannyob/quickfixstatus')
-call dein#add('fatih/vim-go')
 call dein#add('Konfekt/FastFold')
 call dein#add('rust-lang/rust.vim')
 call dein#add('racer-rust/vim-racer')
@@ -252,11 +251,6 @@ call extend(g:quickrun_config, s:config)
 unlet s:config
 
 call watchdogs#setup(g:quickrun_config)
-
-"golang--------------------------------------------------
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
 
 "Rust----------------------------------------------------
 let g:rustfmt_autosave = 1
