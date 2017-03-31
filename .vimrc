@@ -106,6 +106,9 @@ call dein#add('dannyob/quickfixstatus')
 call dein#add('Konfekt/FastFold')
 call dein#add('rust-lang/rust.vim')
 call dein#add('racer-rust/vim-racer')
+call dein#add ('plasticboy/vim-markdown')
+call dein#add ('kannokanno/previm')
+call dein#add ('tyru/open-browser.vim')
 
 call dein#end()
 
@@ -257,4 +260,10 @@ let g:rustfmt_autosave = 1
 let g:rustfmt_command = '$HOME/.cargo/bin/rustfmt'
 
 let g:racer_cmd = '$HOME/.cargo/bin/racer'
+
+"Markdown-----------------------------------------------
+augroup PrevimSettings
+  autocmd!
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
+augroup END
 
