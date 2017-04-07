@@ -101,12 +101,6 @@ zshaddhistory() {
     ]]
 }
 
-#crystal package manage system shards install
-if [ ! -e $HOME"/shards" ]; then
-  git clone https://github.com/ysbaddaden/shards.git
-fi
-
-
 #rustup install
 if [ ! -e $HOME"/.cargo" ]; then
   curl https://sh.rustup.rs -sSf | sh
