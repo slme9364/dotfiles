@@ -101,6 +101,11 @@ zshaddhistory() {
     ]]
 }
 
+#crenv install
+if [ ! -e $HOME/.crenv]; then
+  curl -L https://raw.github.com/pine/crenv/master/install.sh | bash
+fi
+
 #rustup install
 if [ ! -e $HOME"/.cargo" ]; then
   curl https://sh.rustup.rs -sSf | sh
