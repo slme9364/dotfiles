@@ -102,7 +102,7 @@ zshaddhistory() {
 }
 
 #crenv install
-if [ ! -e $HOME/.crenv]; then
+if [ ! -e $HOME/.crenv ]; then
   curl -L https://raw.github.com/pine/crenv/master/install.sh | bash
 fi
 
