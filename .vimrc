@@ -110,6 +110,7 @@ call dein#add ('plasticboy/vim-markdown')
 call dein#add ('kannokanno/previm')
 call dein#add ('tyru/open-browser.vim')
 call dein#add ('rhysd/vim-crystal')
+call dein#add ('othree/html5.vim')
 
 call dein#end()
 
