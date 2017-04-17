@@ -134,3 +134,5 @@ zplug load
 
 #Automatic start tmux
 [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
+
+eval "$(rbenv init -)"
