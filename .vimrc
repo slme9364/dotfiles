@@ -262,6 +262,7 @@ let g:rustfmt_command = '$HOME/.cargo/bin/rustfmt'
 
 let g:racer_cmd = '$HOME/.cargo/bin/racer'
 
+let $RUST_SRC_PATH='$HOME/.rust/rust/src'
 "Markdown-----------------------------------------------
 augroup PrevimSettings
   autocmd!
