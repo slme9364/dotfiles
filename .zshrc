@@ -64,6 +64,7 @@ add-zsh-hook precmd _update_vcs_info_msg
 bindkey '^R' history-incremental-pattern-search-backward
 
 #alias
+alias rb='ruby'
 alias ls='ls -F --color=auto'
 alias la='ls -a'
 alias ll='ls -l'
