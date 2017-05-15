@@ -112,7 +112,7 @@ zshaddhistory() {
 if [ ! -e $HOME"/.cargo" ]; then
   printf 'rustup install? [y/N]: '
   if read -q; then
-    curl https://sh.rustup.rs -sSf | sh
+    echo; curl https://sh.rustup.rs -sSf | sh
   fi
 fi
 
