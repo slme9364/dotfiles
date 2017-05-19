@@ -108,6 +108,9 @@ zshaddhistory() {
     ]]
 }
 
+#zsh command not found read
+source /etc/zsh_command_not_found
+
 #rustup install
 if [ ! -e $HOME"/.cargo" ]; then
   printf 'rustup install? [y/N]: '
