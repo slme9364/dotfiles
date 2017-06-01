@@ -123,7 +123,7 @@ fi
 
 #When you don't have zplug, you install'
 if [ ! -e $HOME"/.zplug" ]; then
-  curl -sL zplug.sh/installer | zsh
+  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 fi
 
 source ~/.zplug/init.zsh
