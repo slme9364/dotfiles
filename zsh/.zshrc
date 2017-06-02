@@ -90,6 +90,7 @@ alias fuzzy-killer="ps axh -F | fzf | awk '{print \$2}' | xargs kill"
 alias tmux-sb='tmux save-buffer - | pbcopy'
 alias tmux-lb='pbpaste | tmux load-buffer -'
 alias noc="cat ~/.zsh_history | awk  '{print \$1}'  | sort | uniq -c | sort -rn | head -3"
+alias firefox='(){firefox $1 &}'
 
 #method
 chpwd() { ls }
