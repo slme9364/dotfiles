@@ -92,6 +92,12 @@ alias tmux-lb='pbpaste | tmux load-buffer -'
 alias noc="cat ~/.zsh_history | awk  '{print \$1}'  | sort | uniq -c | sort -rn | head -3"
 alias firefox='(){firefox $1 &}'
 
+case ${OSTYPE} in
+  darwin*)
+    alias ls='ls -GF'
+    ;;
+esac
+
 #method
 chpwd() { ls }
 
