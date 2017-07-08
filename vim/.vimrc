@@ -73,6 +73,12 @@ inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
 
+"nnoremap
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+
 "if title prtint 'Thanks for flying vim', notitle remove this message
 "set notitle
 
@@ -110,6 +116,7 @@ call dein#add ('plasticboy/vim-markdown')
 call dein#add ('kannokanno/previm')
 call dein#add ('tyru/open-browser.vim')
 call dein#add ('othree/html5.vim')
+call dein#add ('scrooloose/nerdtree')
 
 call dein#end()
 
@@ -268,4 +275,5 @@ augroup PrevimSettings
   autocmd!
   autocmd BufRead,BufNewFile *.md set filetype=markdown
 augroup END
-
+"NERDTree
+autocmd VimEnter * execute 'NERDTree'
