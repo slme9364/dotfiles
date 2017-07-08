@@ -73,7 +73,7 @@ inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
 
-"nnoremap
+"nnoremap"
 nnoremap sl <C-w>l
 nnoremap sh <C-w>h
 nnoremap sj <C-w>j
@@ -116,7 +116,11 @@ call dein#add ('plasticboy/vim-markdown')
 call dein#add ('kannokanno/previm')
 call dein#add ('tyru/open-browser.vim')
 call dein#add ('othree/html5.vim')
-call dein#add ('scrooloose/nerdtree')
+call dein#add ('Shougo/unite.vim')
+call dein#add ('Shougo/neomru.vim')
+call dein#add ('basyura/unite-rails')
+call dein#add ('osyo-manga/vim-monster')
+call dein#add ('tpope/vim-rails')
 
 call dein#end()
 
@@ -149,17 +153,18 @@ let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplete#max_list = 20
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+      \ 'default' : '',
+      \ 'vimshell' : $HOME.'/.vimshell_hist',
+      \ 'scheme' : $HOME.'/.gosh_completions'
+      \ }
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+  let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
@@ -181,7 +186,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " AutoComplPop like behavior.
-let g:neocomplete#enable_auto_select = 1
+" let g:neocomplete#enable_auto_select = 1
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -190,70 +195,65 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
 
 "watchdogs settings
 
 let g:quickrun_config={}
 
 let s:config = {
-\   "watchdogs_checker/_" : {
-\       "hook/copen/enable_exist_data" : 1,
-\       "hook/u_nya_/enable" : 1,
-\       "hook/inu/enable" : 0,
-\       "hook/unite_quickfix/enable" : 0,
-\       "hook/echo/enable" : 0,
-\       "hook/back_buffer/enable" : 0,
-\       "hook/close_unite_quickfix/enable" : 0,
-\       "hook/close_buffer/enable_exit" : 0,
-\       "hook/close_quickfix/enable_exit" : 1,
-\       "hook/redraw_unite_quickfix/enable_exit" : 0,
-\       "hook/close_unite_quickfix/enable_exit" : 1,
-\       "runner" : "vimproc",
-\       "runner/vimproc/updatetime" : 40
-\   },
-\
-\   "cpp/watchdogs_checker" : {
-\       "hook/add_include_option/enable" : 1,
-\       "type" : "watchdogs_checker/g++",
-\   },
-\
-\   "haskell/watchdogs_checker" : {
-\       "type" : "watchdogs_checker/hlint",
-\   },
-\   "watchdogs_checker/msvc" : {
-\       "hook/msvc_compiler/enable" : 1,
-\       "hook/msvc_compiler/target" : "c:/program files/microsoft visual studio 10.0",
-\       "hook/output_encode/encoding" : "sjis",
-\       "cmdopt" : "/Zs ",
-\   },
-\
-\   "watchdogs_checker/g++" : {
-\       "cmdopt" : "-std=gnu++0x -Wall",
-\   },
-\
-\   "watchdogs_checker/clang++" : {
-\       "cmdopt" : "-std=gnu++0x -Wall",
-\   },
-\
-\   "python/watchdogs_checker" : {
-\       "type" : "watchdogs_checker/pyflakes",
-\   },
-\   
-\   "watchdogs_checker/pyflakes" : {
-\       "command" : "c:/python27/scripts/pyflakes",
-\   },
-\}
+      \   "watchdogs_checker/_" : {
+      \       "hook/copen/enable_exist_data" : 1,
+      \       "hook/u_nya_/enable" : 1,
+      \       "hook/inu/enable" : 0,
+      \       "hook/unite_quickfix/enable" : 0,
+      \       "hook/echo/enable" : 0,
+      \       "hook/back_buffer/enable" : 0,
+      \       "hook/close_unite_quickfix/enable" : 0,
+      \       "hook/close_buffer/enable_exit" : 0,
+      \       "hook/close_quickfix/enable_exit" : 1,
+      \       "hook/redraw_unite_quickfix/enable_exit" : 0,
+      \       "hook/close_unite_quickfix/enable_exit" : 1,
+      \       "runner" : "vimproc",
+      \       "runner/vimproc/updatetime" : 40
+      \   },
+      \
+      \   "cpp/watchdogs_checker" : {
+      \       "hook/add_include_option/enable" : 1,
+      \       "type" : "watchdogs_checker/g++",
+      \   },
+      \
+      \   "haskell/watchdogs_checker" : {
+      \       "type" : "watchdogs_checker/hlint",
+      \   },
+      \   "watchdogs_checker/msvc" : {
+      \       "hook/msvc_compiler/enable" : 1,
+      \       "hook/msvc_compiler/target" : "c:/program files/microsoft visual studio 10.0",
+      \       "hook/output_encode/encoding" : "sjis",
+      \       "cmdopt" : "/Zs ",
+      \   },
+      \
+      \   "watchdogs_checker/g++" : {
+      \       "cmdopt" : "-std=gnu++0x -Wall",
+      \   },
+      \
+      \   "watchdogs_checker/clang++" : {
+      \       "cmdopt" : "-std=gnu++0x -Wall",
+      \   },
+      \
+      \   "python/watchdogs_checker" : {
+      \       "type" : "watchdogs_checker/pyflakes",
+      \   },
+      \   
+      \   "watchdogs_checker/pyflakes" : {
+      \       "command" : "c:/python27/scripts/pyflakes",
+      \   },
+      \}
 
 let g:watchdogs_check_BufWritePost_enable = 1
 
 let g:watchdogs_check_BufWritePost_enables = {
-\           "rust" : 0
-\}
+      \           "rust" : 0
+      \}
 
 let g:watchdogs_check_CursorHold_enable = 1
 
@@ -275,5 +275,29 @@ augroup PrevimSettings
   autocmd!
   autocmd BufRead,BufNewFile *.md set filetype=markdown
 augroup END
-"NERDTree
-autocmd VimEnter * execute 'NERDTree'
+"Unite.vim
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable =1
+let g:unite_source_file_mru_limit = 200
+nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+
+"Unite-rails
+nnoremap <silent> ,urm :<C-u>Unite rails/model<CR>
+nnoremap <silent> ,urv :<C-u>Unite rails/view<CR>
+nnoremap <silent> ,urc :<C-u>Unite rails/controller<CR>
+nnoremap <silent> ,uro :<C-u>Unite rails/route<CR>
+nnoremap <silent> ,urs :<C-u>Unite rails/stylesheet<CR>
+nnoremap <silent> ,urh :<C-u>Unite rails/helper<CR>
+nnoremap <silent> ,urg :<C-u>Unite rails/config<CR>
+
+"ruby completion
+let g:monster#completion#rcodetools#backend = "async_rct_complete"
+
+let g:neocomplete#sources#omni#input_patterns = {
+\   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
+\}
