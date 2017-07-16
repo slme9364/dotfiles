@@ -17,7 +17,9 @@ zshenv is written about Enviroment Value.
 zshrc is written about other setting.  
 
 ## Vim
-vim include vimrc.  
+vim include vim and nvim  
+vim include vimrc  
+neovim include neovim settings  
 vimrc is wriiten about vim setting and plugin.  
 
 ## tmux
