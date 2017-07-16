@@ -1,0 +1,58 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add='''
+source ~/.config/nvim/plugins/deoplete.rc.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+hook_add = '''
+source ~/.config/nvim/plugins/rust.rc.vim
+'''
+
+[[plugins]]
+repo = 'racer-rust/vim-racer'
+hook_add = '''
+source ~/.config/nvim/plugins/racer.rc.vim
+'''
+
+[[plugins]]
+repo = 'othree/html5.vim'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+hook_add = '''
+source ~/.config/nvim/plugins/vim-airline.rc.vim
+'''
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]]
+repo = 'sebastianmarkow/deoplete-rust'
+hook_add = '''
+source ~/.config/nvim/plugins/deoplete-rust.rc.vim
+'''
+
+[[plugins]]
+repo = '5t111111/denite-rails'
+hook_add = '''
+source ~/.config/nvim/plugins/denite-rails.rc.vim
+'''
+
+[[plugins]]
+repo = 'fishbullet/deoplete-ruby'
+
