@@ -56,3 +56,18 @@ source ~/.config/nvim/plugins/denite-rails.rc.vim
 [[plugins]]
 repo = 'fishbullet/deoplete-ruby'
 
+[[plugins]]
+repo ='plasticboy/vim-markdown'
+hook_add = '''
+source ~/.config/nvim/plugins/markdown.rc.vim
+'''
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo = 'kannokanno/previm'
+hook_add = '''
+source ~/.config/nvim/plugins/previm.rc.vim
+'''
+
