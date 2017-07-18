@@ -42,12 +42,6 @@ repo = 'cespare/vim-toml'
 on_ft = 'toml'
 
 [[plugins]]
-repo = 'sebastianmarkow/deoplete-rust'
-hook_add = '''
-source ~/.config/nvim/plugins/deoplete-rust.rc.vim
-'''
-
-[[plugins]]
 repo = '5t111111/denite-rails'
 hook_add = '''
 source ~/.config/nvim/plugins/denite-rails.rc.vim

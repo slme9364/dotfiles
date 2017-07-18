@@ -1,1 +1,1 @@
-let g:racer_cmd = '$HOME/.cargo/bin/racer'
+let g:racer_cmd = '/home/slme/.cargo/bin/racer'
