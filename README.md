@@ -1,4 +1,4 @@
-dotsfile
+dotfiles
 ===
 
 # Description
