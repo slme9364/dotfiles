@@ -70,6 +70,7 @@ set cursorcolumn
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
+inoremap <silent> jj <ESC>
 
 "nnoremap"
 nnoremap sl <C-w>l
