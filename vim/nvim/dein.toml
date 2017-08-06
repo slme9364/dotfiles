@@ -68,3 +68,11 @@ hook_add = '''
 source ~/.config/nvim/plugins/previm.rc.vim
 '''
 
+[[plugins]]
+repo = 'ekalinin/Dockerfile.vim'
+
+[[plugins]]
+repo = 'miyakogi/seiya.vim'
+hook_add ='''
+source ~/.config/nvim/plugins/seiya.rc.vim
+'''
