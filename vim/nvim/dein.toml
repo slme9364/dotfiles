@@ -63,7 +63,8 @@ source ~/.config/nvim/plugins/markdown.rc.vim
 repo = 'tyru/open-browser.vim'
 
 [[plugins]]
-repo = 'kannokanno/previm'
+repo = 'kazuph/previm'
+rev = 'feature/add-plantuml-plugin'
 hook_add = '''
 source ~/.config/nvim/plugins/previm.rc.vim
 '''
