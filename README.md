@@ -27,6 +27,9 @@ vimrc is wriiten about vim setting and plugin.
 ## tmux
 tmux include tmux.conf.  
 
+## ion
+ion include my initsrc.  
+
 # Usage  
 I still haven't finished a install program preparations.  
 If I can prepare a install program, I write here.  

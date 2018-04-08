@@ -1,0 +1,58 @@
+# Plugin available
+let NS_PLUGINS = 1
+
+# Enviroment variable
+export LANG=ja_JP.UTF-8
+export PATH=$HOME/go/bin:/home/linuxbrew/.linuxbrew/bin:$HOME/.cargo/bin:$HOME/.zplug/bin:$HOME/bin:$HOME/.rbenv/bin:$HOME/.local/bin:$PATH
+export GOPATH=$HOME/go
+
+# Prompt Configuration
+fn PROMPT
+  echo -n "${c::0x55,bold}[${USER}]${c::default} ${c::0x4B}${SWD}${c::default}"
+  if exists -d .git
+    if not is ${git::modified_count} 0
+      echo -n "${c::0x55,bold}"
+    end
+    echo -n "(git)[${git::branch}]"
+  end
+  echo ${c::reset}
+  echo -n "(*'-') <"
+end
+
+# Command not found handler
+fn COMMAND_NOT_FOUND str
+  echo "(*'-')< $str なんてコマンドはないわ"
+end
+
+# When execute cd, called this method
+fn CD_CHANGE
+  ls
+end
+
+# alias
+alias ls='ls -F --color=auto'
+alias rb='ruby'
+alias dc='docker-compose'
+alias ls='ls -F --color=auto'
+alias la='ls -a'
+alias ll='ls -l'
+alias lal='ls -al'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias mkdir='mkdir -p'
+alias sudo='sudo '
+alias -g L='| less'
+alias -g G='| grep'
+alias t='type'
+alias c='clear'
+alias e='exit'
+alias g='git'
+alias d='docker'
+alias pbcopy='xsel --input --clipboard'
+alias pbpaste='xsel --output --clipboard'
+alias g++='g++ -std=c++14 -pthread'
+alias vi='/usr/bin/vim'
+alias vim='nvim'
+
+clear
