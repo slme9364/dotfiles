@@ -161,3 +161,7 @@ if [ ! -e $HOME"/.cargo" ] && [ ! -e $HOME"/.zplug" ]; then
 fi
 
 eval "$(rbenv init -)"
+
+if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
+  zcompile ~/.zshrc
+fi
