@@ -6,6 +6,9 @@ export LANG=ja_JP.UTF-8
 export PATH=$HOME/go/bin:/home/linuxbrew/.linuxbrew/bin:$HOME/.cargo/bin:$HOME/.zplug/bin:$HOME/bin:$HOME/.rbenv/bin:$HOME/.local/bin:$PATH
 export GOPATH=$HOME/go
 
+# History Configuration
+let HISTORY_IGNORE = [ no_such_command ]
+
 # Prompt Configuration
 fn PROMPT
   echo -n "${c::0x55,bold}[${USER}]${c::default} ${c::0x4B}${SWD}${c::default}"
@@ -16,7 +19,7 @@ fn PROMPT
     echo -n "(git)[${git::branch}]"
   end
   echo ${c::reset}
-  echo -n "(*'-') <"
+  echo -n "(*'-') < "
 end
 
 # Command not found handler
