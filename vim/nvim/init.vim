@@ -66,6 +66,7 @@ set wildmenu
 set cursorline
 set cursorcolumn
 
+set completeopt=menuone
 "inoremap settings
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap " ""<LEFT>

@@ -3,13 +3,13 @@ repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'Shougo/vimproc'
+build = 'make'
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_add='''
 source ~/.config/nvim/plugins/deoplete.rc.vim
 '''
-
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
@@ -23,12 +23,6 @@ repo = 'tomasr/molokai'
 repo = 'rust-lang/rust.vim'
 hook_add = '''
 source ~/.config/nvim/plugins/rust.rc.vim
-'''
-
-[[plugins]]
-repo = 'racer-rust/vim-racer'
-hook_add = '''
-source ~/.config/nvim/plugins/racer.rc.vim
 '''
 
 [[plugins]]
@@ -63,8 +57,7 @@ source ~/.config/nvim/plugins/markdown.rc.vim
 repo = 'tyru/open-browser.vim'
 
 [[plugins]]
-repo = 'kazuph/previm'
-rev = 'feature/add-plantuml-plugin'
+repo = 'kannokanno/previm'
 hook_add = '''
 source ~/.config/nvim/plugins/previm.rc.vim
 '''
@@ -74,6 +67,27 @@ repo = 'ekalinin/Dockerfile.vim'
 
 [[plugins]]
 repo = 'miyakogi/seiya.vim'
-hook_add ='''
+hook_add = '''
 source ~/.config/nvim/plugins/seiya.rc.vim
+'''
+
+[[plugins]]
+repo = 'fatih/vim-go'
+hook_add = '''
+source ~/.config/nvim/plugins/vim-go.rc.vim
+'''
+
+[[plugins]]
+repo = 'zchee/deoplete-go'
+hook_add = '''
+source ~/.config/nvim/plugins/deo-go.rc.vim
+'''
+
+[[plugins]]
+repo = 'udalov/kotlin-vim'
+
+[[plugins]]
+repo = 'racer-rust/vim-racer'
+hook_add = '''
+source ~/.config/nvim/plugins/racer.rc.vim
 '''
