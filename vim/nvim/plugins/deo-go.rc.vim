@@ -1,1 +1,1 @@
-let g:deoplete#sources#gocode_binary = '/home/slme/.go/bin/gocode'
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'

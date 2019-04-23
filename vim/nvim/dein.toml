@@ -91,3 +91,22 @@ repo = 'racer-rust/vim-racer'
 hook_add = '''
 source ~/.config/nvim/plugins/racer.rc.vim
 '''
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+hook_add = '''
+source ~/.config/nvim/plugins/defx.rc.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+hook_add = '''
+source ~/.config/nvim/plugins/neosnippet.rc.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
