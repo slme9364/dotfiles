@@ -155,6 +155,13 @@ fi
 
 zplug load
 
+if [ ! -e $HOME"/.rbenv" ]; then
+  printf 'rbenv install? [y/N]: '
+  if read -q; then
+    echo; mkdir .rbenv && git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+  fi
+fi
+
 eval "$(rbenv init -)"
 
 if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
