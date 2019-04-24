@@ -155,11 +155,6 @@ fi
 
 zplug load
 
-#Automatic start tmux
-if [ ! -e $HOME"/.cargo" ] && [ ! -e $HOME"/.zplug" ]; then
-  [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
-fi
-
 eval "$(rbenv init -)"
 
 if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
