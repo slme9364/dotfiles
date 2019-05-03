@@ -110,3 +110,6 @@ source ~/.config/nvim/plugins/neosnippet.rc.vim
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
+[[plugins]]
+repo = 'mbbill/undotree'
+
