@@ -39,15 +39,6 @@ repo = 'cespare/vim-toml'
 on_ft = 'toml'
 
 [[plugins]]
-repo = '5t111111/denite-rails'
-hook_add = '''
-source ~/.config/nvim/plugins/denite-rails.rc.vim
-'''
-
-[[plugins]]
-repo = 'fishbullet/deoplete-ruby'
-
-[[plugins]]
 repo ='plasticboy/vim-markdown'
 hook_add = '''
 source ~/.config/nvim/plugins/markdown.rc.vim
@@ -72,27 +63,6 @@ source ~/.config/nvim/plugins/seiya.rc.vim
 '''
 
 [[plugins]]
-repo = 'fatih/vim-go'
-hook_add = '''
-source ~/.config/nvim/plugins/vim-go.rc.vim
-'''
-
-[[plugins]]
-repo = 'zchee/deoplete-go'
-hook_add = '''
-source ~/.config/nvim/plugins/deo-go.rc.vim
-'''
-
-[[plugins]]
-repo = 'udalov/kotlin-vim'
-
-[[plugins]]
-repo = 'racer-rust/vim-racer'
-hook_add = '''
-source ~/.config/nvim/plugins/racer.rc.vim
-'''
-
-[[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
@@ -113,3 +83,9 @@ repo = 'Shougo/neosnippet-snippets'
 [[plugins]]
 repo = 'mbbill/undotree'
 
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+on_i = 1
+merged = '0'
+hook_source = 'call coil398#init#coc#hook_source()'
