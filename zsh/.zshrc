@@ -76,21 +76,13 @@ alias mkdir='mkdir -p'
 alias sudo='sudo '
 alias -g L='| less'
 alias -g G='| grep'
-alias t='type'
-alias c='clear'
-alias e='exit'
-alias g='git'
-alias d='docker'
 alias pbcopy='xsel --input --clipboard'
 alias pbpaste='xsel --output --clipboard'
 alias g++='g++ -std=c++14 -pthread'
-alias mecab-c++='(){ g++ -std=c++14 $1 `mecab-config --cflags` `mecab-config --libs` }'
-alias cv-c++='(){g++ -std=c++14 -ggdb `pkg-config --cflags opencv` $1 `pkg-config --libs opencv`}'
 alias fuzzy-killer="ps axh -F | fzf | awk '{print \$2}' | xargs kill"
 alias tmux-sb='tmux save-buffer - | pbcopy'
 alias tmux-lb='pbpaste | tmux load-buffer -'
 alias noc="cat ~/.zsh_history | awk  '{print \$1}'  | sort | uniq -c | sort -rn | head -3"
-alias firefox='(){firefox $1 &}'
 
 case ${OSTYPE} in
   darwin*)
@@ -114,17 +106,6 @@ zshaddhistory() {
         && ${cmd} != (tmux-sb|tmux-lb)
     ]]
 }
-
-#zsh command not found read
-source /etc/zsh_command_not_found
-
-#rustup install
-if [ ! -e $HOME"/.cargo" ]; then
-  printf 'rustup install? [y/N]: '
-  if read -q; then
-    echo; curl https://sh.rustup.rs -sSf | sh
-  fi
-fi
 
 ##zplug
 
@@ -154,15 +135,6 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
-
-if [ ! -e $HOME"/.rbenv" ]; then
-  printf 'rbenv install? [y/N]: '
-  if read -q; then
-    echo; mkdir .rbenv && git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-  fi
-fi
-
-eval "$(rbenv init -)"
 
 if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
   zcompile ~/.zshrc
