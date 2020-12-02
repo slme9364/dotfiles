@@ -42,7 +42,6 @@ zstyle ':zle:*' word-style unspecified
 
 #zsh_completion
 autoload -Uz compinit
-compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z} r:|[-_.]=**'
 zstyle ':completion:*' ignore-parents parent pwd ..
@@ -76,13 +75,12 @@ alias mkdir='mkdir -p'
 alias sudo='sudo '
 alias -g L='| less'
 alias -g G='| grep'
-alias pbcopy='xsel --input --clipboard'
-alias pbpaste='xsel --output --clipboard'
-alias g++='g++ -std=c++14 -pthread'
-alias fuzzy-killer="ps axh -F | fzf | awk '{print \$2}' | xargs kill"
+alias t='type'
+alias fuzzy-killer="ps axh | fzf | awk '{print \$2}' | xargs kill"
 alias tmux-sb='tmux save-buffer - | pbcopy'
 alias tmux-lb='pbpaste | tmux load-buffer -'
-alias noc="cat ~/.zsh_history | awk  '{print \$1}'  | sort | uniq -c | sort -rn | head -3"
+alias vim='/usr/local/bin/nvim'
+alias vi='/usr/bin/vim'
 
 case ${OSTYPE} in
   darwin*)
@@ -106,7 +104,6 @@ zshaddhistory() {
         && ${cmd} != (tmux-sb|tmux-lb)
     ]]
 }
-
 ##zplug
 
 #When you don't have zplug, you install'
@@ -118,12 +115,11 @@ source ~/.zplug/init.zsh
 
 #Define plugins
 zplug 'zsh-users/zsh-autosuggestions'
-zplug 'zsh-users/zsh-completions'
-zplug 'felixr/docker-zsh-completion'
+zplug 'zsh-users/zsh-completions', lazy:true
+zplug 'felixr/docker-zsh-completion', lazy:true
 zplug 'junegunn/fzf-bin', as:command, from:gh-r, rename-to:fzf
 zplug 'junegunn/fzf', as:command, use:bin/fzf-tmux
 zplug 'b4b4r07/enhancd', use:init.sh
-zplug 'k4rthik/git-cal', as:command
 zplug 'zsh-users/zsh-syntax-highlighting', defer:3
 
 #If Not installed plugins exist, you installed there.
@@ -138,4 +134,29 @@ zplug load
 
 if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
   zcompile ~/.zshrc
+  fi
+  export NVM_DIR="$HOME/.nvm"
+
+nvm() {
+  unset -f nvm
+
+  source "$NVM_DIR/nvm.sh"
+
+  nvm "$@"
+}
+
+rbenv() {
+  unfunction "$0"
+  eval "$(rbenv init -)"
+  $0 "$@"
+}
+
+goenv() {
+  unfunction "$0"
+  eval "$(goenv init -)"
+  $0 $@
+}
+
+if (type zprof > /dev/null 2>&1) ;then
+  zprof > ~/.zprof.log
 fi

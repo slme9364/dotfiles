@@ -51,4 +51,4 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> cd
         \ defx#do_action('change_vim_cwd')
 endfunction
-autocmd VimEnter * execute 'Defx -show-ignored-files -split=vertical -winwidth=50 -direction=topleft'
+autocmd VimEnter * execute 'Defx -show-ignored-files -split=vertical -winwidth=40 -direction=topleft'

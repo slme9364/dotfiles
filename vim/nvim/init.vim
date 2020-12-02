@@ -2,6 +2,7 @@
 "set clipboard=autoselect
 set clipboard+=unnamed
 set clipboard=unnamedplus
+set splitright
 
 "mouse can use
 set mouse=a
@@ -85,7 +86,10 @@ nnoremap sk <C-w>k
 "can use 256 color
 set t_Co=256
 
-let g:python3_host_prog = expand('/usr/bin/python3')
+let g:python_host_prog = expand('/usr/bin/python')
+let g:python3_host_prog = expand('/usr/local/bin/python3')
+let g:ruby_host_prog = '/usr/local/bin/neovim-ruby-host'
+let g:node_host_prog = '/usr/local/bin/neovim-node-host'
 
 "dein Scripts-----------------------------
 if &compatible
@@ -124,4 +128,5 @@ colorscheme molokai
 syntax on
 
 filetype plugin indent on
+
 
