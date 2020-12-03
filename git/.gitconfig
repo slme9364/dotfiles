@@ -2,3 +2,5 @@
   name = "slme9364"
   email = "ishikazu1104@yahoo.co.jp"
 
+[includeIf "gitdir/i:~/repos/enterprise/"]
+  path = ~/.gitconfig_enterprise
