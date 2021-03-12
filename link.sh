@@ -1,10 +1,10 @@
-#!bin/sh
+#bin/sh
 
-ln -s zsh/.zshrc ~/.zshrc
-ln -s zsh/.zshenv ~/.zshenv
-ln -s vim/nvim ~/.config/nvim
-ln -s vim/.ideavimrc ~/.ideavimrc
-ln -s vim/.vimrc.keymap ~/.vimrc.keymap
-ln -s git/.gitconfig ~/.gitconfig
-ln -s tmux/.tmux.conf ~/.tmux.conf
+ln -svf ~/repos/dotfiles/zsh/.zshrc ~
+ln -svf ~/repos/dotfiles/zsh/.zshenv ~
+ln -svf ~/repos/dotfiles/vim/nvim ~/.config
+ln -svf ~/repos/dotfiles/vim/.ideavimrc ~
+ln -svf ~/repos/dotfiles/vim/.vimrc.keymap ~
+ln -svf ~/repos/dotfiles/git/.gitconfig ~
+ln -svf ~/repos/dotfiles/tmux/.tmux.conf ~
 
